@@ -267,6 +267,10 @@ app.post("/delete", function(req,res){
 
 })
 
-app.listen(4000, function(){
+const port=process.env.PORT;
+if(port==null || port == ""){
+    port=4000;
+}
+app.listen(port, function(){
     console.log("server started on port 4000");
 });

@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.set("view-engine", "ejs");
 
-const connectionurl="mongodb+srv://shroy016797:7Tytb760kgVa7MtR@cluster0.ph7oewe.mongodb.net/todolistDB"
+const connectionurl="mongodb+srv://shroy016797:7Tytb760kgVa7MtR@cluster0.ph7oewe.mongodb.net/todolistDB";
 mongoose.connect(connectionurl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -73,7 +73,6 @@ async function insertData(){
         //mongoose.connection.close(); // Close the connection when done
     }
 } 
-
 
 
 async function insertNewData(itemName){
@@ -173,6 +172,7 @@ app.get("/",function(req,res){
     
     insertData();
     var day= date.getDate();
+    console.log(items);
     res.render("list.ejs", {listTitle:day , newListItem:items});
 
 });
@@ -267,10 +267,11 @@ app.post("/delete", function(req,res){
 
 })
 
-const port=process.env.PORT;
+let port=process.env.PORT;
+console.log(port);
 if(port==null || port == ""){
     port=4000;
 }
 app.listen(port, function(){
-    console.log("server started on port 4000");
+    console.log("server started on port:"+port);
 });

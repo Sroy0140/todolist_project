@@ -1,2 +1,4 @@
 [build]
-    functions="functions"
+command = "npm run build" # Replace "app.js" with the correct filename of your entry point.
+functions = "serverless"
+publish = "." # Replace "public" with the name of your publish directory.

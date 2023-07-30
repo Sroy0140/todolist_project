@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.set("view-engine", "ejs");
 
-const connectionurl="mongodb+srv://shroy016797:7Tytb760kgVa7MtR@cluster0.ph7oewe.mongodb.net/todolistDB";
+const connectionurl= process.env.connectionurl;
 mongoose.connect(connectionurl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
